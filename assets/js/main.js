@@ -79,7 +79,12 @@ app.controller('AdisonFeed', function($scope, $localStorage, $sessionStorage) {
         };
         posts.post(post).then(function(res) {
             post.id = res.id;
-            post.doc = post;
+            post.doc = {
+                email: $scope.$storage.user.email,
+                author: $scope.$storage.user.id,
+                text: $scope.text,
+                time: (Math.round(new Date().getTime()/1000))
+            };
             $scope.posts.unshift(post);
             $scope.text = null;
             $scope.networking = false;
