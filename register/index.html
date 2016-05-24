@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Adison - Register</title>
+        <script src="../bower_components/angular/angular.min.js" charset="utf-8"></script>
+        <script src="../bower_components/angular-route/angular-route.min.js" charset="utf-8"></script>
+        <script src="../bower_components/ngstorage/ngStorage.min.js" charset="utf-8"></script>
+        <script src="../bower_components/pouchdb/dist/pouchdb.min.js" charset="utf-8"></script>
+        <script src="../bower_components/JavaScript-MD5/js/md5.min.js" charset="utf-8"></script>
+        <script src="../assets/js/main.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="../assets/css/main.css" media="screen" title="no title" charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+    <body data-ng-app="Adison">
+        <div id="wrap" data-ng-controller="AdisonWrap">
+            <div id="header">
+                <h1>Adison</h1>
+                <div id="links">
+                    <div data-ng-if="$storage.loggedIn == false">
+                        <a href="/access">Access</a>
+                        <a href="/register">Register</a>
+                    </div>
+                </div>
+            </div>
+            <div id="content" data-ng-controller="AdisonRegisterForm">
+                <h1>Register</h1>
+                <form data-ng-submit="register()">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" name="email" data-ng-model="user.email" placeholder="Email" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" name="password" data-ng-model="user.password" placeholder="Password" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="submit">Register</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

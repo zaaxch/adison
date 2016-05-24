@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Adison</title>
+        <script src="./bower_components/angular/angular.min.js" charset="utf-8"></script>
+        <script src="./bower_components/angular-route/angular-route.min.js" charset="utf-8"></script>
+        <script src="./bower_components/ngstorage/ngStorage.min.js" charset="utf-8"></script>
+        <script src="./bower_components/pouchdb/dist/pouchdb.min.js" charset="utf-8"></script>
+        <script src="./bower_components/JavaScript-MD5/js/md5.min.js" charset="utf-8"></script>
+        <script src="./assets/js/main.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="./assets/css/main.css" media="screen" title="no title">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+    <body data-ng-app="Adison">
+        <div id="wrap" data-ng-controller="AdisonWrap">
+            <div id="content">
+                <div data-ng-if="$storage.loggedIn == true">
+                    <div id="header">
+                        <h1>Adison</h1>
+                        <div id="links">
+                            <div data-ng-if="$storage.loggedIn == true">
+                                <a href="#" data-ng-click="logout()">Exit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-ng-if="$storage.loggedIn == false">
+                    <div class="center">
+                        <h1>Welcome to Adison!</h1>
+                        <table>
+                            <tr>
+                                <td>
+                                    <a href="/access/">Access</a>
+                                </td>
+                                <td>
+                                    <a href="/register/">Register</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div data-ng-if="$storage.loggedIn == true">
+                    <div data-ng-controller="AdisonFeed">
+                        <div class="post-box">
+                            <form data-ng-submit="post()">
+                                <textarea placeholder="What would you like to say?" maxlength="140" name="text" data-ng-model="text"></textarea>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <button type="submit">Post</button>
+                                            </td>
+                                            <td>
+                                                <span class="grey small right block">Posting as {{ $storage.user.email }}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="post" data-ng-repeat="post in posts">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="first">
+                                            <img src="#" data-ng-src="https://robohash.org/{{post.value.author}}.png" alt="{{post.id}}" />
+                                        </td>
+                                        <td class="second">
+                                            <p class="author">{{post.value.email}}</p>
+                                            <p>
+                                                {{post.value.text}}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

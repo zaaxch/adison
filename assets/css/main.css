@@ -1,0 +1,113 @@
+body {
+  margin: 0px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #444444;
+  background-color: #F7F7F7;
+}
+
+a {
+  color: #1D62F0;
+}
+
+input {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #444444;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #777777;
+  margin-bottom: 10px;
+  height: 30px;
+  outline: none;
+}
+
+button {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #444444;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  background-color: #4CD964;
+  border: none;
+  height: 30px;
+  outline: none;
+}
+
+textarea {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  color: #444444;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.grey {
+  color: #898C90;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.block {
+  display: block;
+}
+
+div#header {
+  padding-bottom: 20px;
+}
+
+div#wrap {
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+}
+
+#content table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+#content .post-box {
+  padding: 5px;
+  background-color: #FFFFFF;
+  border: 1px solid #D7D7D7;
+}
+#content .post {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #D7D7D7;
+}
+#content .post table td {
+  padding: 0px;
+}
+#content .post table td.first {
+  width: 100px;
+}
+#content .post table img {
+  height: 100px;
+}
+#content .post p.author {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=main.css.map */
