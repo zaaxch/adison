@@ -16,6 +16,9 @@ body {
 a {
     color: #1D62F0;
 }
+iframe {
+    border-width: 0px;
+}
 input {
     @include font;
     box-sizing: border-box;
