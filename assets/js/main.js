@@ -1,6 +1,7 @@
 var app = angular.module('Adison', [
     'ngRoute',
-    'ngStorage'
+    'ngStorage',
+    'ngAnimate'
 ]);
 
 app.config(['$localStorageProvider',
@@ -59,8 +60,11 @@ app.controller('AdisonFeed', function($scope, $localStorage, $sessionStorage) {
         };
         posts.post(post).then(function(res) {
             post.id = res.id;
+            post.value = post;
             $scope.posts.unshift(post);
+            $scope.text = null;
             $scope.networking = false;
+            $scope.$apply();
             return;
         }).catch(function(err) {
             alert("Something went wrong, please try again!");
