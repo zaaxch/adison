@@ -18,36 +18,40 @@
             <div id="header">
                 <h1><a href="../">Adison</a></h1>
                 <div id="links">
-                    <div data-ng-if="$storage.loggedIn == false">
-                        <a href="../access">Access</a>
-                        <a href="../register">Register</a>
-                    </div>
+                    <span data-ng-if="$storage.loggedIn == true">
+                        <a href="#" data-ng-click="logout()">Exit</a>
+                    </span>
+                    <a href="./search">Search</a>
                 </div>
             </div>
-            <div id="content" data-ng-controller="AdisonRegisterForm">
-                <h1>Register</h1>
-                <form data-ng-submit="register()">
+            <div id="content" data-ng-controller="AdisonSearch">
+                <h1>Search</h1>
+                <form data-ng-submit="search()">
                     <table>
                         <tr>
                             <td>
-                                <input type="text" name="email" data-ng-model="user.email" placeholder="Email" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="password" name="password" data-ng-model="user.password" placeholder="Password" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button type="submit">Register</button>
+                                <input type="text" name="q" data-ng-model="q" placeholder="What would you like to search?" />
                             </td>
                         </tr>
                     </table>
-                    <div class="center">
-                        <img class="mt" src="../assets/images/b.jpg" alt="meme" />
-                    </div>
                 </form>
+                <div class="post fade" data-ng-repeat="post in posts">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="first">
+                                    <img src="#" data-ng-src="https://robohash.org/{{post.doc.author}}.png" alt="{{post.id}}" />
+                                </td>
+                                <td class="second">
+                                    <p class="author">{{post.doc.email}}</p>
+                                    <p>
+                                        {{post.doc.text}}
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div id="footer">
                 <a href="../tos">Terms of Service</a>

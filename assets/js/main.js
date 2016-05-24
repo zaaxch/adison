@@ -23,10 +23,6 @@ var users = new PouchDB('https://adison.cloudant.com/users', {
 var posts = new PouchDB('https://adison.cloudant.com/posts', {
     ajax: {
         cache: false
-    },
-    auth: {
-        username: 'birseltedearinhistoodert',
-        password: '6e88c4261fff2c1084120d30d36212169574c17a'
     }
 });
 
@@ -38,6 +34,28 @@ app.controller('AdisonWrap', function($scope, $localStorage, $sessionStorage) {
         $scope.$storage.user = {};
         $scope.$storage.loggedIn = false;
         document.location = "./";
+    };
+});
+
+app.controller('AdisonSearch', function($scope, $localStorage, $sessionStorage, $http) {
+    $scope.$storage = $localStorage.$default({
+        loggedIn: false
+    });
+    $scope.q = null;
+    $scope.posts = [];
+    $scope.networking = false;
+    $scope.search = function() {
+        $http({
+            method: 'GET',
+            url: 'https://adison.cloudant.com/posts/_design/posts/_search/text',
+            params: {
+                q: $scope.q,
+                include_docs: true
+            }
+        }).then(function(res) {
+            $scope.posts = res.data.rows;
+            $scope.$apply();
+        });
     };
 });
 
@@ -56,11 +74,12 @@ app.controller('AdisonFeed', function($scope, $localStorage, $sessionStorage) {
         var post = {
             email: $scope.$storage.user.email,
             author: $scope.$storage.user.id,
-            text: $scope.text
+            text: $scope.text,
+            time: (Math.round(new Date().getTime()/1000))
         };
         posts.post(post).then(function(res) {
             post.id = res.id;
-            post.value = post;
+            post.doc = post;
             $scope.posts.unshift(post);
             $scope.text = null;
             $scope.networking = false;
@@ -74,7 +93,9 @@ app.controller('AdisonFeed', function($scope, $localStorage, $sessionStorage) {
     };
     $scope.load = function() {
         posts.query('posts/posts', {
-
+            descending: true,
+            limit: 30,
+            include_docs: true
         }).then(function (res) {
             $scope.posts = res.rows;
             $scope.$apply();

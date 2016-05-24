@@ -8,14 +8,15 @@
         <script src="../bower_components/ngstorage/ngStorage.min.js" charset="utf-8"></script>
         <script src="../bower_components/pouchdb/dist/pouchdb.min.js" charset="utf-8"></script>
         <script src="../bower_components/JavaScript-MD5/js/md5.min.js" charset="utf-8"></script>
+        <script src="../bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
         <script src="../assets/js/main.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="../assets/css/main.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="../assets/css/main.css" media="screen" title="no title">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     </head>
     <body data-ng-app="Adison">
         <div id="wrap" data-ng-controller="AdisonWrap">
             <div id="header">
-                <h1>Adison</h1>
+                <h1><a href="../">Adison</a></h1>
                 <div id="links">
                     <div data-ng-if="$storage.loggedIn == false">
                         <a href="../access">Access</a>
@@ -43,7 +44,14 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="center">
+                        <img class="mt" src="../assets/images/c.png" alt="meme" />
+                    </div>
                 </form>
+            </div>
+            <div id="footer">
+                <a href="../tos">Terms of Service</a>
+                <a href="../videos">Videos</a>
             </div>
         </div>
     </body>

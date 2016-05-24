@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Adison - Videos</title>
+    <script src="../bower_components/angular/angular.min.js" charset="utf-8"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js" charset="utf-8"></script>
+    <script src="../bower_components/ngstorage/ngStorage.min.js" charset="utf-8"></script>
+    <script src="../bower_components/pouchdb/dist/pouchdb.min.js" charset="utf-8"></script>
+    <script src="../bower_components/JavaScript-MD5/js/md5.min.js" charset="utf-8"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+    <script src="../assets/js/main.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../assets/css/main.css" media="screen" title="no title">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+
+<body data-ng-app="Adison">
+    <div id="wrap" data-ng-controller="AdisonWrap">
+        <div id="header">
+            <h1><a href="../">Adison</a></h1>
+            <div id="links">
+                <span data-ng-if="$storage.loggedIn == true">
+                        <a href="#" data-ng-click="logout()">Exit</a>
+                    </span>
+                <a href="../search">Search</a>
+            </div>
+        </div>
+        <div id="content" class="center">
+            <h1>Some of our favorite videos!</h1>
+            <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/kT262kW2tfY" allowfullscreen></iframe>
+            </p>
+            <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/eGeSO84aDBE" allowfullscreen></iframe>
+            </p>
+            <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3ESdOSb2UYQ" allowfullscreen></iframe>
+            </p>
+            <p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/AclhwQKlgfw" allowfullscreen></iframe>
+            </p>
+        </div>
+        <div id="footer">
+            <a href="../tos">Terms of Service</a>
+            <a href="../videos">Videos</a>
+        </div>
+    </div>
+</body>
+
+</html>

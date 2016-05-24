@@ -60,6 +60,9 @@ textarea {
 .block {
     display: block;
 }
+.mt {
+    margin-top: 20px;
+}
 .fade.ng-enter {
     transition:0.5s linear all;
     opacity:0;
@@ -73,9 +76,13 @@ div#header {
 div#wrap {
     max-width: 800px;
     margin: auto;
-    padding: 10px;
+    padding: 0px 10px 10px 10px;
 }
 #content {
+    img {
+        width: 100%;
+        max-width: 600px !important;
+    }
     table {
         width: 100%;
         border-spacing: 0px;
@@ -93,6 +100,7 @@ div#wrap {
         table {
             td {
                 padding: 0px;
+                vertical-align: top;
             }
             td.first {
                 width: 100px;
@@ -104,5 +112,13 @@ div#wrap {
         p.author {
             font-weight: bold;
         }
+    }
+}
+div#footer {
+    padding-top: 10px;
+    text-align: center;
+    color: $grey;
+    a {
+        color: $grey;
     }
 }
