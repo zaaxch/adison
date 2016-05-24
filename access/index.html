@@ -18,12 +18,13 @@
                 <h1>Adison</h1>
                 <div id="links">
                     <div data-ng-if="$storage.loggedIn == false">
-                        <a href="/access">Access</a>
-                        <a href="/register">Register</a>
+                        <a href="../access">Access</a>
+                        <a href="../register">Register</a>
                     </div>
                 </div>
             </div>
             <div id="content" data-ng-controller="AdisonAccessForm">
+                <h1>Access</h1>
                 <form data-ng-submit="login()">
                     <table>
                         <tr>

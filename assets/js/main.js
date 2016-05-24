@@ -36,7 +36,7 @@ app.controller('AdisonWrap', function($scope, $localStorage, $sessionStorage) {
     $scope.logout = function() {
         $scope.$storage.user = {};
         $scope.$storage.loggedIn = false;
-        document.location = "/";
+        document.location = "./";
     };
 });
 
@@ -83,7 +83,7 @@ app.controller('AdisonAccessForm', function($scope, $localStorage, $sessionStora
     $scope.user = {};
     $scope.networking = false;
     if ($scope.$storage.loggedIn == true) {
-        document.location = "/";
+        document.location = "../";
     }
     $scope.login = function() {
         if ($scope.networking) {
@@ -103,7 +103,7 @@ app.controller('AdisonAccessForm', function($scope, $localStorage, $sessionStora
                         "id": res.rows[0].id,
                         "email": $scope.user.email
                     };
-                    document.location = "/";
+                    document.location = "../";
                     $scope.networking = false;
                     return;
                 } else {
@@ -124,7 +124,7 @@ app.controller('AdisonRegisterForm', function($scope, $localStorage, $sessionSto
     $scope.user = {};
     $scope.networking = false;
     if ($scope.$storage.loggedIn == true) {
-        document.location = "/";
+        document.location = "../";
     }
     $scope.register = function() {
         if ($scope.networking) {
@@ -149,7 +149,7 @@ app.controller('AdisonRegisterForm', function($scope, $localStorage, $sessionSto
                                 "id": res.id,
                                 "email": $scope.user.email
                             };
-                            document.location = "/";
+                            document.location = "../";
                             $scope.networking = false;
                             return;
                         }).catch(function(err) {
